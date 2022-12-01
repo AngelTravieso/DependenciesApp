@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.github.barteksc.pdfviewer.PDFView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,15 +15,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ImageView imageView = findViewById(R.id.imageView);
+        // Glide library
+        /*ImageView imageView = findViewById(R.id.imageView);*/
 
         /*imageView.setImageResource(R.drawable.mountains);*/
 
-        // Glide library
-        Glide
+        /*Glide
                 .with(this)
                 .load(R.drawable.mountains)
-                .into(imageView);
+                .into(imageView);*/
+
+        /* PDFViewer Library */
+        PDFView pdfView = findViewById(R.id.pdfView);
+
+        // Cargar documento PDF de la carpeta assets
+        pdfView.fromAsset("heap.pdf").load();
 
     }
 }
