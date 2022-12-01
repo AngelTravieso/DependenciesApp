@@ -1,0 +1,45 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.example.dependenciesapp'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.dependenciesapp"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    /* dependencia modular de libreria local */
+    /*implementation project(':mylibrary')*/
+
+    /* dependencia binario local (todos los archivos */
+    /*implementation fileTree(dir: 'libs', includes: ['*.jar'])*/
+
+    /* incluir por archivo */
+    /*implementation files('libs/foo.jar', 'libs/bar.jar')*/
+
+    /* dependencia de binario remoto */
+    implementation 'com.example.android:app-magic:12.3'
+
+}
